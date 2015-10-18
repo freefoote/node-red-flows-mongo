@@ -1,0 +1,23 @@
+{
+  "name": "node-red-flows-mongo",
+  "version": "0.5.0",
+  "description": "Node Red Module to store Flows and the library in Mongo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:freefoote/node-red-flows-mongo.git"
+  },
+  "keywords": [
+    "node-red",
+    "mongo"
+  ],
+  "author": "Daniel Foote",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freefoote/node-red-flows-mongo/issues"
+  },
+  "homepage": "https://github.com/freefoote/node-red-flows-mongo"
+}
