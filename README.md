@@ -17,12 +17,18 @@ as per the guide for running a custom Node-Red inside your process:
 
 http://nodered.org/docs/embedding.html
 
+Firstly, require the module:
+
+```bash
+npm install --save node-red-flows-mongo
+```
+
 Then, in your settings, add:
 
 ```javascript
 var settings = {
 	...
-	storageModule: require("node-red-storage-mongodb"),
+	storageModule: require("node-red-flows-mongo"),
 	mongoUrl: 'mongodb://localhost/nodered',
 	...
 };
