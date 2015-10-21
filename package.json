@@ -1,6 +1,6 @@
 {
   "name": "node-red-flows-mongo",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Node Red Module to store Flows and the library in Mongo.",
   "main": "index.js",
   "scripts": {
