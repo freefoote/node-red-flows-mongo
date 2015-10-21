@@ -7,8 +7,8 @@ var path = require('path');
 var settings;
 
 var storageSchema = mongoose.Schema({
-    type: String,
-    path: String,
+    type: { type: [String], index: true },
+    path: { type: [String], index: true },
     body: Object,
     meta: Object
 });
