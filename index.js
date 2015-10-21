@@ -38,7 +38,11 @@ function simpleLoad(type, path) {
                     resolve({});
                 } else {
                     if (storageDocument.body) {
-                        resolve(storageDocument.body);
+                        if (typeof(storageDocument.body) == "string") {
+                            resolve(JSON.parse(storageDocument.body));
+                        } else {
+                            resolve(storageDocument.body);
+			}
                     } else {
                         resolve({});
                     }
@@ -60,7 +64,7 @@ function simpleSave(type, path, blob) {
                         storageDocument = new Storage({type: type, path: path});
                     }
 
-                    storageDocument.body = blob;
+                    storageDocument.body = JSON.stringify(blob);
 
                     storageDocument.save(function (err, storageDocument) {
                         if (err) {
@@ -98,7 +102,7 @@ function sortDocumentsIntoPaths(documents) {
                 sorted[mat].push(bits[j]);
             }
         }
-        var meta = doc.meta;
+        var meta = JSON.parse(doc.meta);
         meta.fn = path.basename(doc.path);
         sorted[p].push(meta);
     }
@@ -162,7 +166,7 @@ var mongodb = {
                         reject(err);
                     }
                     if (storageDocument != null) {
-                        resolve(storageDocument.body);
+                        resolve(JSON.parse(storageDocument.body));
                     } else {
                         // Probably a directory listing...
                         // Crudely return everything.
@@ -196,8 +200,8 @@ var mongodb = {
                             storageDocument = new Storage({type: resolvedType, path: path});
                         }
 
-                        storageDocument.meta = meta;
-                        storageDocument.body = body;
+                        storageDocument.meta = JSON.stringify(meta);
+                        storageDocument.body = JSON.stringify(body);
 
                         storageDocument.save(function (err, storageDocument) {
                             if (err) {
