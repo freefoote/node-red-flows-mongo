@@ -37,7 +37,11 @@ function simpleLoad(type, path) {
                 if (storageDocument == null) {
                     resolve({});
                 } else {
-                    resolve(storageDocument.body);
+                    if (storageDocument.body) {
+                        resolve(storageDocument.body);
+                    } else {
+                        resolve({});
+                    }
                 }
             }
         );
